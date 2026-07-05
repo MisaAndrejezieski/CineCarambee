@@ -9,122 +9,216 @@ body {
     background-color: #0d0d0d;
     color: #f0f0f0;
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
+/* ========== HEADER ========== */
 header {
     background-color: #1a1a1a;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-header h1 {
-    color: #e63946;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo .icone {
+    font-size: 32px;
+}
+
+.logo h1 {
+    color: #e6a817;
     font-size: 28px;
+    font-weight: 700;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 nav a {
     color: #f0f0f0;
     text-decoration: none;
-    margin-left: 20px;
+    font-size: 16px;
+    transition: color 0.2s;
 }
 
 nav a:hover {
-    color: #e63946;
+    color: #e6a817;
 }
 
+/* ========== MAIN ========== */
 main {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 30px 20px;
+    flex: 1;
 }
 
 .destaque {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
+.destaque h2,
 .grade-filmes h2 {
     margin-bottom: 20px;
+    font-size: 24px;
+    position: relative;
+    padding-left: 15px;
 }
 
+.destaque h2::before,
+.grade-filmes h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 24px;
+    background-color: #e6a817;
+    border-radius: 2px;
+}
+
+/* Player destaque */
+.player-destaque {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.player-destaque iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Grid de filmes */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    gap: 25px;
 }
 
 .card-filme {
     background-color: #1a1a1a;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card-filme:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(230, 168, 23, 0.15);
 }
 
 .card-filme img {
     width: 100%;
     height: 300px;
     object-fit: cover;
+    display: block;
 }
 
 .card-filme .info {
-    padding: 10px;
+    padding: 15px;
 }
 
 .card-filme .info h3 {
     font-size: 16px;
     margin-bottom: 5px;
+    color: #f0f0f0;
 }
 
 .card-filme .info p {
-    font-size: 12px;
+    font-size: 13px;
     color: #aaa;
 }
 
+/* ========== FOOTER ========== */
 footer {
     text-align: center;
     padding: 20px;
     background-color: #1a1a1a;
-    margin-top: 40px;
-}
-
-.player-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    margin-bottom: 30px;
-}
-
-.player-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-}
-
-.detalhes-filme h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.detalhes-filme .ano {
-    color: #e63946;
-    margin-bottom: 15px;
-}
-
-.detalhes-filme .sinopse {
-    margin-bottom: 15px;
-    font-size: 16px;
-}
-
-.detalhes-filme .ficha {
     color: #aaa;
     font-size: 14px;
+}
+
+/* ========== RESPONSIVO ========== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo h1 {
+        font-size: 24px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .card-filme img {
+        height: 220px;
+    }
+
+    .destaque h2,
+    .grade-filmes h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 20px 15px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .card-filme img {
+        height: 180px;
+    }
+
+    .card-filme .info h3 {
+        font-size: 14px;
+    }
+
+    .card-filme .info p {
+        font-size: 11px;
+    }
+
+    .logo .icone {
+        font-size: 24px;
+    }
+
+    .logo h1 {
+        font-size: 20px;
+    }
 }
