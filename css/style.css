@@ -162,6 +162,49 @@ footer {
     font-size: 14px;
 }
 
+/* ========== PÁGINA DO FILME ========== */
+.player-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin-bottom: 30px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.player-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.detalhes-filme h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #f0f0f0;
+}
+
+.detalhes-filme .ano {
+    color: #e6a817;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.detalhes-filme .sinopse {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.detalhes-filme .ficha {
+    color: #aaa;
+    font-size: 14px;
+}
+
 /* ========== RESPONSIVO ========== */
 @media (max-width: 768px) {
     header {
@@ -189,6 +232,14 @@ footer {
     .destaque h2,
     .grade-filmes h2 {
         font-size: 20px;
+    }
+
+    .detalhes-filme h2 {
+        font-size: 22px;
+    }
+
+    .detalhes-filme .sinopse {
+        font-size: 15px;
     }
 }
 
